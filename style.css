@@ -1,4 +1,4 @@
-/* ======== Основні налаштування ======== */
+/* ======== ОСНОВНІ НАЛАШТУВАННЯ ======== */
 body {
     font-family: "Poppins", Arial, sans-serif;
     margin: 0;
@@ -8,7 +8,7 @@ body {
     line-height: 1.6;
 }
 
-/* ======== Заголовок ======== */
+/* ======== ГОЛОВНИЙ ЗАГОЛОВОК ======== */
 h1 {
     text-align: center;
     background: linear-gradient(90deg, #8b0000, #ff1a1a);
@@ -20,7 +20,7 @@ h1 {
     box-shadow: 0 3px 15px rgba(255, 0, 0, 0.3);
 }
 
-/* ======== Розділи з фото ======== */
+/* ======== РОЗДІЛИ З ФОТО ======== */
 .section {
     background-color: #1a1a1a;
     border: 1px solid #ff1a1a;
@@ -61,8 +61,8 @@ h1 {
     clear: both;
 }
 
-/* ======== Галерея (3 фото) ======== */
-h2 {
+/* ======== ГАЛЕРЕЯ 3 ФОТО ======== */
+h2.gallery-title {
     text-align: center;
     color: #ff3333;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
@@ -91,7 +91,7 @@ h2 {
     box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
 }
 
-/* ======== Нижні 2 фото по центру ======== */
+/* ======== НИЖНІ 2 ФОТО ПО ЦЕНТРУ ======== */
 .gallery-bottom {
     display: flex;
     justify-content: center;
@@ -112,7 +112,7 @@ h2 {
     box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
 }
 
-/* ======== Footer ======== */
+/* ======== ФУТЕР ======== */
 footer {
     text-align: center;
     background: #1a1a1a;
@@ -129,7 +129,19 @@ footer strong {
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
-/* ======== Адаптація для телефонів ======== */
+/* ======== АДАПТИВНІСТЬ ======== */
+@media (max-width: 1024px) {
+    .section img {
+        width: 50%;
+    }
+    .gallery img {
+        width: 45%;
+    }
+    .gallery-bottom img {
+        width: 45%;
+    }
+}
+
 @media (max-width: 768px) {
     .section img {
         float: none;
@@ -137,32 +149,9 @@ footer strong {
         margin: 0 0 20px 0;
     }
 
-    .gallery img {
-        width: 45%;
-    }
-
-    .gallery-bottom img {
-        width: 45%;
-    }
-
-    h1 {
-        font-size: 26px;
-    }
-}
-/* ===== АДАПТИВНІСТЬ (для планшетів і телефонів) ===== */
-@media (max-width: 768px) {
-    /* Всі секції фото + текст тепер стають вертикально */
-    .section img {
-        float: none;       /* прибираємо обтікання текстом */
-        width: 100%;       /* фото на всю ширину */
-        margin: 0 0 20px 0;
-    }
-
-    /* Галерея з трьома фото стане 2 або 1 в рядку */
     .gallery {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
     }
 
     .gallery img {
@@ -170,9 +159,9 @@ footer strong {
         margin-bottom: 15px;
     }
 
-    /* Нижні два фото по центру */
     .gallery-bottom {
         flex-direction: column;
+        align-items: center;
         gap: 20px;
     }
 
@@ -180,7 +169,6 @@ footer strong {
         width: 80%;
     }
 
-    /* Заголовки трохи менші */
     h1 {
         font-size: 26px;
     }
