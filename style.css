@@ -42,11 +42,17 @@ h1 {
 
 .section img {
     float: left;
-    width: 40%;
-    margin-right: 25px;
+    width: 35%; /* зменшили для перших 3 фото */
+    margin-right: 20px;
     border-radius: 10px;
     border: 2px solid #ff1a1a;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
 }
 
 .section p {
@@ -61,7 +67,7 @@ h1 {
     clear: both;
 }
 
-/* ======== ГАЛЕРЕЯ 3 ФОТО ======== */
+/* ======== ГАЛЕРЕЯ 3 ФОТО В РЯД ======== */
 h2.gallery-title {
     text-align: center;
     color: #ff3333;
@@ -143,30 +149,31 @@ footer strong {
 }
 
 @media (max-width: 768px) {
-    .section img {
+    /* ВСІ ФОТО ПО ОДНОМУ НА РЯДОК */
+    .section img,
+    .gallery img,
+    .gallery-bottom img {
         float: none;
-        width: 100%;
-        margin: 0 0 20px 0;
+        width: 90%; /* трохи менше від екрану, красиво по центру */
+        margin: 0 auto 20px auto;
+        display: block;
     }
 
+    .section p {
+        clear: both;
+    }
+
+    /* Галереї вертикальні */
     .gallery {
         flex-direction: column;
         align-items: center;
-    }
-
-    .gallery img {
-        width: 80%;
-        margin-bottom: 15px;
+        gap: 20px;
     }
 
     .gallery-bottom {
         flex-direction: column;
         align-items: center;
         gap: 20px;
-    }
-
-    .gallery-bottom img {
-        width: 80%;
     }
 
     h1 {
