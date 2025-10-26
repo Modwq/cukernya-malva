@@ -1,187 +1,228 @@
-/* ======== ОСНОВНІ НАЛАШТУВАННЯ ======== */
-body {
-    font-family: "Poppins", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #111;
-    color: #f5f5f5;
-    line-height: 1.6;
+/* ====== ПОВНИЙ STYLE.CSS (замініть собою старий) ====== */
+
+/* box-sizing щоб розміри були передбачувані */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* ======== ГОЛОВНИЙ ЗАГОЛОВОК ======== */
+/* ====== ОСНОВНІ НАЛАШТУВАННЯ ====== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #0f0f10; /* дуже темний фон */
+  color: #f5f5f5;
+  font-family: "Poppins", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* Контейнер, щоб нічого не врізалось у краї екрану */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px; /* важливо: запобігає врізанню в кути */
+}
+
+/* ====== Заголовок ====== */
 h1 {
-    text-align: center;
-    background: linear-gradient(90deg, #8b0000, #ff1a1a);
-    color: white;
-    padding: 30px 0;
-    margin: 0;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    box-shadow: 0 3px 15px rgba(255, 0, 0, 0.3);
+  margin: 0 0 28px 0;
+  padding: 26px 14px;
+  text-align: center;
+  font-size: 34px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #8b0000, #ff1a1a);
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(255,0,0,0.15);
 }
 
-/* ======== СЕКЦІЇ З ФОТО + ТЕКСТ ======== */
+/* ====== КАРТКИ/СЕКЦІЇ ====== */
 .section {
-    background-color: #1a1a1a;
-    border: 2px solid #ff1a1a;
-    border-radius: 12px;
-    margin: 40px auto;
-    padding: 25px;
-    max-width: 1100px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+  background: #171717;
+  border: 2px solid #ff1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 28px 0;
+  box-shadow: 0 6px 26px rgba(255,0,0,0.06);
+  overflow: visible;
 }
 
+/* Заголовки секцій */
 .section h2 {
-    color: #ff4d4d;
-    margin-bottom: 15px;
-    border-left: 5px solid #ff1a1a;
-    padding-left: 10px;
-    font-size: 22px;
-    text-transform: uppercase;
+  margin: 0 0 12px 0;
+  padding-left: 10px;
+  border-left: 5px solid #ff1a1a;
+  color: #ff6666;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
-/* ======== СТИЛЬ ВСІХ ФОТО ======== */
+/* ====== УНІФІКОВАНИЙ СТИЛЬ ДЛЯ ВСІХ ЗОБРАЖЕНЬ ====== */
+/* (секційні 3 і галерея 5 використовують однакові візуальні правила) */
 .section img,
 .gallery img,
 .gallery-bottom img {
-    border-radius: 10px;
-    border: 2px solid #ff1a1a;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 2px solid #ff1a1a;
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.18);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  object-fit: cover;
 }
 
+/* Hover (для десктопу; на мобільних це не зашкодить) */
 .section img:hover,
 .gallery img:hover,
 .gallery-bottom img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+  transform: scale(1.04);
+  box-shadow: 0 10px 36px rgba(255, 0, 0, 0.28);
 }
 
-/* ======== ПЕРШІ 3 ФОТО СЕКЦІЙ ======== */
-.section img {
-    float: left;
-    width: 35%; /* ПК: помірна ширина */
-    margin-right: 20px;
+/* ====== ПОВЕДІНКА ПЕРШИХ 3 ФОТО НА ДЕСКТОПІ ====== */
+/* На десктопі фото секцій плавають ліворуч і займають ~30% ширини контейнера секції */
+.section .section-img {
+  float: left;
+  width: 30%;
+  max-width: 360px;     /* обмежимо максимальний розмір, щоб не надто вирізалось */
+  margin-right: 20px;
+  margin-bottom: 12px;
 }
 
-/* ======== ТЕКСТ СЕКЦІЙ ======== */
+/* текст праворуч від фото */
 .section p {
-    font-size: 16px;
-    color: #ddd;
-    text-align: justify;
+  margin: 0 0 10px 0;
+  color: #e6e6e6;
+  text-align: justify;
+  font-size: 15px;
 }
 
-.section::after {
-    content: "";
-    display: block;
-    clear: both;
+/* після секції очистка float (на випадок, якщо не використовуєш ::after) */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-/* ======== ГАЛЕРЕЯ 3 ФОТО В РЯД ======== */
-h2.gallery-title {
-    text-align: center;
-    color: #ff3333;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-    margin-top: 60px;
-}
-
+/* ====== ГАЛЕРЕЯ 3 В РЯД (десктоп) ====== */
 .gallery {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    max-width: 900px;
-    margin: 30px auto;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 28px auto 0 auto;
+  max-width: 900px;
 }
 
 .gallery img {
-    width: 30%;
+  width: calc((100% - 32px) / 3); /* рівномірно по палітрі */
 }
 
-/* ======== НИЖНІ 2 ФОТО ПО ЦЕНТРУ ======== */
+/* ====== НИЖНІ 2 ФОТО (по центру на десктопі) ====== */
 .gallery-bottom {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 14px auto 0 auto;
+  max-width: 900px;
 }
 
 .gallery-bottom img {
-    width: 35%;
+  width: 35%;
+  max-width: 420px;
 }
 
-/* ======== ФУТЕР ======== */
+/* ====== ФУТЕР ====== */
 footer {
-    text-align: center;
-    background: #1a1a1a;
-    border-top: 2px solid #ff1a1a;
-    padding: 25px;
-    margin-top: 60px;
-    font-size: 16px;
-    color: #ccc;
-    box-shadow: 0 -3px 15px rgba(255, 0, 0, 0.2);
+  margin-top: 36px;
+  padding: 18px;
+  text-align: center;
+  background: #141414;
+  border-top: 2px solid #ff1a1a;
+  color: #d0d0d0;
+  border-radius: 8px;
+  box-shadow: 0 -6px 22px rgba(255,0,0,0.04);
 }
 
-footer strong {
-    color: #ff3333;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-}
-
-/* ======== АДАПТИВНІСТЬ ======== */
-
-/* Планшети */
+/* ====== АДАПТИВНІСТЬ: планшет (1024px) ====== */
 @media (max-width: 1024px) {
-    .section img {
-        width: 45%;
-    }
-    .gallery img {
-        width: 45%;
-    }
-    .gallery-bottom img {
-        width: 45%;
-    }
+  .container { padding: 18px; }
+  .section { padding: 18px; margin: 22px 0; }
+  .section .section-img { width: 42%; max-width: 420px; margin-right: 16px; }
+  .gallery img { width: calc((100% - 16px) / 2); } /* 2 в ряд якщо місця бракує */
+  .gallery { gap: 12px; max-width: 820px; }
+  .gallery-bottom img { width: 45%; }
 }
 
-/* Телефони (iPhone та інші) */
+/* ====== АДАПТИВНІСТЬ: телефони (включно iPhone) ====== */
 @media (max-width: 768px) {
-    /* ВСІ ФОТО ПО ОДНОМУ НА РЯДОК */
-    .section img,
-    .gallery img,
-    .gallery-bottom img {
-        float: none;
-        width: 90%;
-        display: block;
-        margin: 0 auto 20px auto;
-    }
 
-    /* Галереї вертикальні */
-    .gallery {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
+  /* body/container — даємо невеликі поля, щоб фото не врізались у кути */
+  html, body { -webkit-text-size-adjust: 100%; }
+  .container { padding: 12px; }
 
-    .gallery-bottom {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
+  /* СЕКЦІЇ: прибираємо float, всі фото як у галереї, по одному на рядок, центровані */
+  .section .section-img,
+  .gallery img,
+  .gallery-bottom img {
+    float: none !important;
+    width: 92% !important;       /* займають 92% ширини екрану — не врізаються у краї */
+    max-width: 760px;
+    margin: 0 auto 18px auto;
+    display: block;
+  }
 
-    /* Текст не обтікає фото */
-    .section p {
-        clear: both;
-    }
+  /* Текст не обтікає фото */
+  .section p { clear: both; margin-top: 6px; font-size: 15px; }
 
-    /* Заголовки та футер трохи менші */
-    h1 {
-        font-size: 26px;
-    }
+  /* Галереї вертикальні */
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    max-width: 760px;
+    margin: 20px auto 0 auto;
+  }
 
-    h2 {
-        font-size: 20px;
-    }
+  .gallery img { width: 92%; }
 
-    footer {
-        font-size: 14px;
-    }
+  .gallery-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    margin-top: 10px;
+    max-width: 760px;
+  }
+
+  .gallery-bottom img { width: 92%; }
+
+  /* Менші заголовки на мобільних */
+  h1 { font-size: 22px; padding: 18px 10px; }
+  .section h2 { font-size: 16px; padding-left: 8px; }
+
+  footer { font-size: 14px; padding: 14px; margin-top: 26px; }
 }
+
+/* ====== ДУЖЕ МАЛІ ЕКРАНИ (старі маленькі телефони) ====== */
+@media (max-width: 420px) {
+  .container { padding: 10px; }
+  .section .section-img,
+  .gallery img,
+  .gallery-bottom img { width: 96% !important; margin: 0 auto 14px auto; }
+  h1 { font-size: 20px; padding: 14px 8px; }
+}
+
+/* ====== ДОДАТКОВІ ПРИМІТКИ ====== */
+/* Якщо в HTML ти використовуєш <img class="section-img" ...> — цей файл підхопить ці зображення.
+   У галереї використовуй <div class="gallery"> і <div class="gallery-bottom"> як раніше.
+   Контейнер повинен обгортати всю сторінку: <div class="container"> ... </div>
+*/
