@@ -209,7 +209,4 @@ html, body {
     font-size: 15px;
   }
 }
-.view-counter {
-    text-align: right;
-    margin-bottom: 10px; /* відступ від заголовка */
-}
+
