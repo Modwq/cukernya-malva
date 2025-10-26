@@ -3,8 +3,8 @@ body {
     font-family: "Poppins", Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #111; /* темний фон */
-    color: #f5f5f5; /* світлий текст */
+    background-color: #111;
+    color: #f5f5f5;
     line-height: 1.6;
 }
 
@@ -20,7 +20,7 @@ h1 {
     box-shadow: 0 3px 15px rgba(255, 0, 0, 0.3);
 }
 
-/* ======== РОЗДІЛИ З ФОТО ======== */
+/* ======== СЕКЦІЇ З ФОТО + ТЕКСТ ======== */
 .section {
     background-color: #1a1a1a;
     border: 1px solid #ff1a1a;
@@ -42,7 +42,7 @@ h1 {
 
 .section img {
     float: left;
-    width: 35%; /* зменшили для перших 3 фото */
+    width: 35%;
     margin-right: 20px;
     border-radius: 10px;
     border: 2px solid #ff1a1a;
@@ -135,10 +135,10 @@ footer strong {
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
-/* ======== АДАПТИВНІСТЬ ======== */
+/* ======== АДАПТИВНІСТЬ ДЛЯ ПЛАНШЕТІВ ======== */
 @media (max-width: 1024px) {
     .section img {
-        width: 50%;
+        width: 45%;
     }
     .gallery img {
         width: 45%;
@@ -148,19 +148,16 @@ footer strong {
     }
 }
 
+/* ======== АДАПТИВНІСТЬ ДЛЯ ТЕЛЕФОНІВ (iPhone та інші) ======== */
 @media (max-width: 768px) {
-    /* ВСІ ФОТО ПО ОДНОМУ НА РЯДОК */
+    /* ВСІ ФОТО ПО ОДНОМУ НА РЯДОК, ЦЕНТРОВАНІ */
     .section img,
     .gallery img,
     .gallery-bottom img {
         float: none;
-        width: 90%; /* трохи менше від екрану, красиво по центру */
+        width: 90%;
         margin: 0 auto 20px auto;
         display: block;
-    }
-
-    .section p {
-        clear: both;
     }
 
     /* Галереї вертикальні */
@@ -176,6 +173,12 @@ footer strong {
         gap: 20px;
     }
 
+    /* Текст не обтікає фото */
+    .section p {
+        clear: both;
+    }
+
+    /* Заголовки та футер трохи менші */
     h1 {
         font-size: 26px;
     }
