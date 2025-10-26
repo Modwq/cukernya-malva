@@ -23,7 +23,7 @@ h1 {
 /* ======== СЕКЦІЇ З ФОТО + ТЕКСТ ======== */
 .section {
     background-color: #1a1a1a;
-    border: 1px solid #ff1a1a;
+    border: 2px solid #ff1a1a;
     border-radius: 12px;
     margin: 40px auto;
     padding: 25px;
@@ -40,21 +40,31 @@ h1 {
     text-transform: uppercase;
 }
 
-.section img {
-    float: left;
-    width: 35%;
-    margin-right: 20px;
+/* ======== СТИЛЬ ВСІХ ФОТО ======== */
+.section img,
+.gallery img,
+.gallery-bottom img {
     border-radius: 10px;
     border: 2px solid #ff1a1a;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.section img:hover {
+.section img:hover,
+.gallery img:hover,
+.gallery-bottom img:hover {
     transform: scale(1.05);
     box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
 }
 
+/* ======== ПЕРШІ 3 ФОТО СЕКЦІЙ ======== */
+.section img {
+    float: left;
+    width: 35%; /* ПК: помірна ширина */
+    margin-right: 20px;
+}
+
+/* ======== ТЕКСТ СЕКЦІЙ ======== */
 .section p {
     font-size: 16px;
     color: #ddd;
@@ -86,15 +96,6 @@ h2.gallery-title {
 
 .gallery img {
     width: 30%;
-    border-radius: 10px;
-    border: 2px solid #ff1a1a;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
 }
 
 /* ======== НИЖНІ 2 ФОТО ПО ЦЕНТРУ ======== */
@@ -107,15 +108,6 @@ h2.gallery-title {
 
 .gallery-bottom img {
     width: 35%;
-    border-radius: 10px;
-    border: 2px solid #ff1a1a;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-bottom img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
 }
 
 /* ======== ФУТЕР ======== */
@@ -135,7 +127,9 @@ footer strong {
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
-/* ======== АДАПТИВНІСТЬ ДЛЯ ПЛАНШЕТІВ ======== */
+/* ======== АДАПТИВНІСТЬ ======== */
+
+/* Планшети */
 @media (max-width: 1024px) {
     .section img {
         width: 45%;
@@ -148,16 +142,16 @@ footer strong {
     }
 }
 
-/* ======== АДАПТИВНІСТЬ ДЛЯ ТЕЛЕФОНІВ (iPhone та інші) ======== */
+/* Телефони (iPhone та інші) */
 @media (max-width: 768px) {
-    /* ВСІ ФОТО ПО ОДНОМУ НА РЯДОК, ЦЕНТРОВАНІ */
+    /* ВСІ ФОТО ПО ОДНОМУ НА РЯДОК */
     .section img,
     .gallery img,
     .gallery-bottom img {
         float: none;
         width: 90%;
-        margin: 0 auto 20px auto;
         display: block;
+        margin: 0 auto 20px auto;
     }
 
     /* Галереї вертикальні */
