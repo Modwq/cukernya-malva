@@ -149,3 +149,47 @@ footer strong {
         font-size: 26px;
     }
 }
+/* ===== АДАПТИВНІСТЬ (для планшетів і телефонів) ===== */
+@media (max-width: 768px) {
+    /* Всі секції фото + текст тепер стають вертикально */
+    .section img {
+        float: none;       /* прибираємо обтікання текстом */
+        width: 100%;       /* фото на всю ширину */
+        margin: 0 0 20px 0;
+    }
+
+    /* Галерея з трьома фото стане 2 або 1 в рядку */
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .gallery img {
+        width: 80%;
+        margin-bottom: 15px;
+    }
+
+    /* Нижні два фото по центру */
+    .gallery-bottom {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .gallery-bottom img {
+        width: 80%;
+    }
+
+    /* Заголовки трохи менші */
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+}
